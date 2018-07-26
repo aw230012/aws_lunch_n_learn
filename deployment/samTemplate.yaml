@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template for the woof garden Twitter bot.
+Resources:
+  thewoofgardentwitterbot:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: sparrow_nokms.handler
+      Runtime: python3.6
+      CodeUri: ../setup
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::853542852052:role/service-role/woof_garden_twitter_new'
+      Events:
+        Schedule1:
+          Type: Schedule
+          Properties:
+            Schedule: rate(1 hour)
