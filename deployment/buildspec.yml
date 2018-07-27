@@ -1,0 +1,20 @@
+version: 0.1
+phases:
+  install:
+    commands:
+      - mkdir setup
+      - pip install -r sparrow/requirements.txt -t ./setup
+  pre_build:
+    commands:
+      - cp sparrow/creds.json setup/creds.json
+      - cp sparrow/sparrow_nokms.py setup/sparrow_nokms.py
+      - cp deployment/samTemplate.yml setup/samTemplate.yml
+  build:
+    commands:
+      - aws cloudformation package --template-file deployment/samTemplate.yml --s3-bucket awslunchnlearn --output-template-file setup/outputSamTemplate.yml
+artifacts:
+  type: zip
+  files:
+    - samTemplate.yml
+    - outputSamTemplate.yml
+  base-directory: 'setup'
