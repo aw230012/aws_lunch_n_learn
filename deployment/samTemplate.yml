@@ -1,8 +1,8 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
-Description: An AWS Serverless Specification template for the woof garden Twitter bot.
+Description: An AWS Serverless Specification template for the Sparrow Twitter Bot.
 Resources:
-  thewoofgardentwitterbot:
+  thesparrowtwitterbot:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: sparrow_nokms.handler
