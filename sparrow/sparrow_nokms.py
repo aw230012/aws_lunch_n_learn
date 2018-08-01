@@ -23,7 +23,7 @@ twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET,
 potential_tweets = [
     'Jim Beam - it''s not that bad!',
     'Jim Beam - at least it''s not Bud Light',
-    'Jim Beam spelled backwards is Maeb Mij. Drink Maeb Mij with Pepsi.'
+    'Jim Beam - the tequila of Kentucky'
 ]
 
 def send_tweet(tweet_text):
